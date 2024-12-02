@@ -51,12 +51,12 @@ public class Day2b {
     }
 
     private boolean descendingDifferenceUnsafe(int previousLevel, int currentLevel) {
-        return currentLevel > previousLevel || differenceOk(previousLevel, currentLevel);
+        return currentLevel > previousLevel || differenceUnsafe(previousLevel, currentLevel);
     }
 
-    private boolean differenceOk(int previousLevel, int currentLevel) {
-        int difference = currentLevel - previousLevel;
-        return Math.abs(difference) > 3 || Math.abs(difference) < 1;
+    private boolean differenceUnsafe(int previousLevel, int currentLevel) {
+        int difference = Math.abs(currentLevel - previousLevel);
+        return difference > 3 || difference < 1;
     }
 
     private List<Integer> reportWithoutElement(List<Integer> report, int i) {
@@ -102,7 +102,7 @@ public class Day2b {
     }
 
     private boolean ascendingDifferenceUnsafe(int previousLevel, int currentLevel) {
-        return currentLevel < previousLevel || differenceOk(previousLevel, currentLevel);
+        return currentLevel < previousLevel || differenceUnsafe(previousLevel, currentLevel);
     }
 
     private boolean ascendingOkWithoutElement(List<Integer> report) {
