@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Day1a {
-    // private static String filename = "./src/aoc24/example.txt";
-    private static String filename = "./src/aoc24/input.txt";
+    private static String filename = "./src/aoc24/day1/example.txt";
+    // private static String filename = "./src/aoc24/day1/input.txt";
     private List<Integer> leftList = new ArrayList<>();
     private List<Integer> rightList = new ArrayList<>();
 
-    public Day1a(List<String> input) {
+    private Day1a(List<String> input) {
         parse(input);
 
         leftList.sort(Integer::compare);

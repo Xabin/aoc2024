@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Day1b {
-    // private static String filename = "./src/aoc24/example.txt";
-    private static String filename = "./src/aoc24/input.txt";
+    private static String filename = "./src/aoc24/day1/example.txt";
+    // private static String filename = "./src/aoc24/day1/input.txt";
     private List<Integer> leftList = new ArrayList<>();
     private List<Integer> rightList = new ArrayList<>();
 
-    public Day1b(List<String> input) {
+    private Day1b(List<String> input) {
         parse(input);
 
         int sum = 0;
