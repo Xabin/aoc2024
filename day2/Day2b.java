@@ -36,7 +36,7 @@ public class Day2b {
         for (int i = 1; i < report.size(); i++) {
             int currentLevel = report.get(i);
 
-            if (descendingDifferenceOk(previousLevel, currentLevel)) {
+            if (descendingDifferenceUnsafe(previousLevel, currentLevel)) {
                 List<Integer> reportWithoutPreviousUnsafeLevel = reportWithoutElement(report, i - 1);
                 List<Integer> reportWithoutCurrentUnsafeLevel = reportWithoutElement(report, i);
 
@@ -50,7 +50,7 @@ public class Day2b {
         return safe;
     }
 
-    private boolean descendingDifferenceOk(int previousLevel, int currentLevel) {
+    private boolean descendingDifferenceUnsafe(int previousLevel, int currentLevel) {
         return currentLevel > previousLevel || differenceOk(previousLevel, currentLevel);
     }
 
@@ -70,7 +70,7 @@ public class Day2b {
         for (int i = 1; i < report.size(); i++) {
             int currentLevel = report.get(i);
 
-            if (descendingDifferenceOk(previousLevel, currentLevel)) {
+            if (descendingDifferenceUnsafe(previousLevel, currentLevel)) {
                 return false;
             }
 
@@ -87,7 +87,7 @@ public class Day2b {
         for (int i = 1; i < report.size(); i++) {
             int currentLevel = report.get(i);
 
-            if (ascendingDifferenceOk(previousLevel, currentLevel)) {
+            if (ascendingDifferenceUnsafe(previousLevel, currentLevel)) {
                 List<Integer> reportWithoutPreviousUnsafeLevel = reportWithoutElement(report, i - 1);
                 List<Integer> reportWithoutCurrentUnsafeLevel = reportWithoutElement(report, i);
 
@@ -101,7 +101,7 @@ public class Day2b {
         return safe;
     }
 
-    private boolean ascendingDifferenceOk(int previousLevel, int currentLevel) {
+    private boolean ascendingDifferenceUnsafe(int previousLevel, int currentLevel) {
         return currentLevel < previousLevel || differenceOk(previousLevel, currentLevel);
     }
 
@@ -112,7 +112,7 @@ public class Day2b {
         for (int i = 1; i < report.size(); i++) {
             int currentLevel = report.get(i);
 
-            if (ascendingDifferenceOk(previousLevel, currentLevel)) {
+            if (ascendingDifferenceUnsafe(previousLevel, currentLevel)) {
                 return false;
             }
 

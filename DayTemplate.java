@@ -6,10 +6,10 @@ import java.nio.file.Path;
 import java.util.List;
 
 public class DayTemplate {
-    // private static String filename = "./src/aoc24/input.txt";
-    private static String filename = "./src/aoc24/example.txt";
+    // private static String filename = "./src/aoc24/day/input.txt";
+    private static String filename = "./src/aoc24/day/example.txt";
 
-    public DayTemplate(List<String> input) {
+    private DayTemplate(List<String> input) {
         parse(input);
     }
 
