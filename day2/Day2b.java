@@ -36,8 +36,7 @@ public class Day2b {
         for (int i = 1; i < report.size(); i++) {
             int currentLevel = report.get(i);
 
-            if (currentLevel > previousLevel || Math.abs(currentLevel - previousLevel) > 3
-                    || Math.abs(currentLevel - previousLevel) < 1) {
+            if (descendingDifferenceOk(previousLevel, currentLevel)) {
                 List<Integer> reportWithoutPreviousUnsafeLevel = reportWithoutElement(report, i - 1);
                 List<Integer> reportWithoutCurrentUnsafeLevel = reportWithoutElement(report, i);
 
@@ -51,6 +50,15 @@ public class Day2b {
         return safe;
     }
 
+    private boolean descendingDifferenceOk(int previousLevel, int currentLevel) {
+        return currentLevel > previousLevel || differenceOk(previousLevel, currentLevel);
+    }
+
+    private boolean differenceOk(int previousLevel, int currentLevel) {
+        int difference = currentLevel - previousLevel;
+        return Math.abs(difference) > 3 || Math.abs(difference) < 1;
+    }
+
     private List<Integer> reportWithoutElement(List<Integer> report, int i) {
         return IntStream.range(0, report.size()).filter(index -> index != i).map(report::get).boxed().toList();
     }
@@ -62,8 +70,7 @@ public class Day2b {
         for (int i = 1; i < report.size(); i++) {
             int currentLevel = report.get(i);
 
-            if (currentLevel > previousLevel || Math.abs(currentLevel - previousLevel) > 3
-                    || Math.abs(currentLevel - previousLevel) < 1) {
+            if (descendingDifferenceOk(previousLevel, currentLevel)) {
                 return false;
             }
 
@@ -80,8 +87,7 @@ public class Day2b {
         for (int i = 1; i < report.size(); i++) {
             int currentLevel = report.get(i);
 
-            if (currentLevel < previousLevel || Math.abs(currentLevel - previousLevel) > 3
-                    || Math.abs(currentLevel - previousLevel) < 1) {
+            if (ascendingDifferenceOk(previousLevel, currentLevel)) {
                 List<Integer> reportWithoutPreviousUnsafeLevel = reportWithoutElement(report, i - 1);
                 List<Integer> reportWithoutCurrentUnsafeLevel = reportWithoutElement(report, i);
 
@@ -95,6 +101,10 @@ public class Day2b {
         return safe;
     }
 
+    private boolean ascendingDifferenceOk(int previousLevel, int currentLevel) {
+        return currentLevel < previousLevel || differenceOk(previousLevel, currentLevel);
+    }
+
     private boolean ascendingOkWithoutElement(List<Integer> report) {
         boolean safe = true;
         int previousLevel = report.get(0);
@@ -102,8 +112,7 @@ public class Day2b {
         for (int i = 1; i < report.size(); i++) {
             int currentLevel = report.get(i);
 
-            if (currentLevel < previousLevel || Math.abs(currentLevel - previousLevel) > 3
-                    || Math.abs(currentLevel - previousLevel) < 1) {
+            if (ascendingDifferenceOk(previousLevel, currentLevel)) {
                 return false;
             }
 
