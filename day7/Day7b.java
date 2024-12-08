@@ -8,8 +8,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Day7b {
-    private static String filename = "./src/aoc24/day7/input.txt";
-    // private static String filename = "./src/aoc24/day7/example.txt";
+    // private static String filename = "./src/aoc24/day7/input.txt";
+    private static String filename = "./src/aoc24/day7/example.txt";
     private List<Equation> equations = new ArrayList<>();
 
     private long calibrationResult = 0;
